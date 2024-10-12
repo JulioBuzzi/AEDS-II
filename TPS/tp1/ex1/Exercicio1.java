@@ -1,3 +1,4 @@
+package ex1;
 import java.util.*;
 
 class Exercicio1{
