@@ -280,6 +280,23 @@ void radixSort(Pokemon *array, int n) {
     }
 }
 
+void insertionSortByAbilityAndName(Pokemon *array, int n) {
+    for (int i = 1; i < n; i++) {
+        Pokemon key = array[i];
+        int j = i - 1;
+        
+        // Comparar pela habilidade primeiro e depois pelo nome
+        while (j >= 0 && 
+            strcmp(array[j].abilities[0], key.abilities[0]) == 0 && 
+            strcmp(getName(&array[j]), getName(&key)) > 0) {
+            array[j + 1] = array[j];
+            j = j - 1;
+        }
+        
+        array[j + 1] = key;
+    }
+}
+
 int main() {
     FILE *file = fopen("/tmp/pokemon.csv", "r");
     if (file == NULL) 
@@ -323,18 +340,7 @@ int main() {
     int movimentacoes = 0;
     long long inicioSort = now();
     radixSort(pokemons, quantidadePokemons);
-    int n = quantidadePokemons;
-    for (int i = 1; i < n; i++) {
-    Pokemon key = pokemons[i];
-    int j = i - 1;
-    while (j >= 0 && pokemons[j].abilities[0] == key.abilities[0] 
-        && strcmp(getName(&pokemons[j]), getName(&key)) > 0) {
-        pokemons[j + 1] = pokemons[j];
-        j = j - 1;
-    }
-    
-    pokemons[j + 1] = key;
-}
+    insertionSortByAbilityAndName(pokemons, quantidadePokemons);
     long long fim = now();
 
      //FALTA IMPRIMIR
