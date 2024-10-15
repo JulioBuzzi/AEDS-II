@@ -280,15 +280,14 @@ void radixSort(Pokemon *array, int n) {
     }
 }
 
-void insertionSortByAbilityAndName(Pokemon *array, int n) {
+void insertionSortByAbilityAndName(Pokemon array[], int n) {
     for (int i = 1; i < n; i++) {
         Pokemon key = array[i];
         int j = i - 1;
         
-        // Comparar pela habilidade primeiro e depois pelo nome
         while (j >= 0 && 
             strcmp(array[j].abilities[0], key.abilities[0]) == 0 && 
-            strcmp(getName(&array[j]), getName(&key)) > 0) {
+            strcmp((array[j].name),(key).name) > 0) {
             array[j + 1] = array[j];
             j = j - 1;
         }
