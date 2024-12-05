@@ -283,7 +283,7 @@ class Exercicio1{
         String numero;
         Lista lista = new Lista();
         int id;
-        int quantidadePokemons = 0;
+        //int quantidadePokemons = 0;
         boolean encontrou;
         while(!(numero = scanner.nextLine()).equals("FIM")) {
             id = Integer.parseInt(numero);
@@ -292,7 +292,7 @@ class Exercicio1{
             while(!encontrou && i < pokedex.size()){
                 if(pokedex.get(i).getId() == id){
                     lista.inserirFim(pokedex.get(i));
-                    quantidadePokemons++;
+               //     quantidadePokemons++;
                     encontrou = true;
                 }
                 i++;

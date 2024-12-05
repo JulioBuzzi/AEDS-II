@@ -268,7 +268,7 @@ class Exercicio9{
         String numero;
         Pilha pilha = new Pilha();
         int id;
-        int quantidadePokemons = 0;
+       // int quantidadePokemons = 0;
         boolean encontrou;
         while(!(numero = scanner.nextLine()).equals("FIM")) {
             id = Integer.parseInt(numero);
@@ -277,7 +277,7 @@ class Exercicio9{
             while(!encontrou && i < pokedex.size()){
                 if(pokedex.get(i).getId() == id){
                     pilha.inserir(pokedex.get(i));
-                    quantidadePokemons++;
+                //    quantidadePokemons++;
                     encontrou = true;
                 }
                 i++;
@@ -308,7 +308,7 @@ class Exercicio9{
     public static void realizarComando(Pilha pilha, List<Pokemon> pokedex, List<Pokemon> pokemonsRemovidos, Scanner scanner){
         String comando = scanner.next();
         if(comando.equals("I") || comando.equals("R*")){
-            String posicaoString = scanner.next();
+            //String posicaoString = scanner.next();
             // int posicao = Integer.parseInt(posicaoString);
             if(comando.equals("I*")){
                 String idString = scanner.next();
